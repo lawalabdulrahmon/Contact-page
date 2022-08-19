@@ -1,0 +1,43 @@
+<!doctype html>
+ <html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Get In Touch</title>
+    <link rel="stylesheet" href="style 2.css">
+    <link rel="icon" href="img/main-img.png">
+    <script src="https://kit.fontawesome.com/a89bfaaac4.js" crossorigin="anonymous"></script>
+</head>
+<body>
+	<div class="container">
+		<form onsubmit="sendEmail(); reset(); return false;">
+			<h2> GET IN TOUCH</h2>
+			<input type="text" id="name" placeholder="Your name" required>
+			<input type="email" id="email" placeholder="Your Mail" required>
+			<input type="text" id="phone" placeholder="Your phone" required>
+			<textarea id="message" rows="4" placeholder="How can we help you?"></textarea>
+			<button type="submit">Send</button>
+		</form>
+	</div>
+	<script src="https://smtpjs.com/v3/smtp.js"></script>
+	<script> 
+function sendemail(){
+	Email.send({
+    Host : "smtp.gmail.com",
+    Username : "lawalperhaps68@gmail.com",
+    Password : "POSSIBLE",
+    To : 'lawalperhaps68@gmail.com',
+    From : document.getElementById("email").value,
+    Subject : "Get In Touch Enquiry",
+    Body : "Name: " + document.getElementById("name").value
+    	+ "<br> Email: " + document.getElementById("email").value 
+    	+ "<br> Phone no: " + document.getElementById("phone").value 
+    	+ "<br> Message: " + document.getElementById("message").value 
+}).then(
+  message => alert("Message sent Sucessfully")
+);
+}
+	</script>
+
+</body>
+</html>
